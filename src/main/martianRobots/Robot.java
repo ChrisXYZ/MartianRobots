@@ -1,3 +1,5 @@
+package martianRobots;
+
 public class Robot {
 
     private int xCoord;

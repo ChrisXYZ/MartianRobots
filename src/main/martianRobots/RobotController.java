@@ -1,3 +1,5 @@
+package martianRobots;
+
 public class RobotController {
 
     private static final char[] ORIENTATIONS = {'N', 'E', 'S', 'W'};
@@ -15,7 +17,7 @@ public class RobotController {
      */
     public String move(Robot robot, String instructions, Grid grid) {
         if (grid.getMaxX() > MAX_COORDINATE_SIZE || grid.getMaxY() > MAX_COORDINATE_SIZE) {
-            return "Grid is over the maximum size - " + MAX_COORDINATE_SIZE;
+            return "main.java.Grid is over the maximum size - " + MAX_COORDINATE_SIZE;
         }
 
         for (char instruction : instructions.toCharArray()) {
