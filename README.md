@@ -7,12 +7,13 @@ Martian Robots is a Java application that simulates the movement of robots on a 
 To run the application, you need the following:
 
 - Java Development Kit (JDK) 8 or above
+- Maven
 
 ## Usage
-
-1. Navigate to the entrypoint of the application (Main.java).
-2. Execute the main method.
-3. Sample input below : (First line Grid Size, every following pair is the robots initial configuration (coordinates and orientation) and a list of instructions)
+1. Mark the Pom.xml file as a maven project
+2. Navigate to the entrypoint of the application (Main.java).
+3. Execute the main method.
+4. Sample input below : (First line Grid Size, every following pair is the robots initial configuration (coordinates and orientation) and a list of instructions)
 
 ## Sample Input
 

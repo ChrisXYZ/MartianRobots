@@ -16,8 +16,9 @@ public class RobotController {
      * the lost status as well.
      */
     public String move(Robot robot, String instructions, Grid grid) {
-        if (grid.getMaxX() > MAX_COORDINATE_SIZE || grid.getMaxY() > MAX_COORDINATE_SIZE) {
-            return "main.java.Grid is over the maximum size - " + MAX_COORDINATE_SIZE;
+        String errors = validateInput(grid, robot);
+        if (errors != null) {
+            return errors;
         }
 
         for (char instruction : instructions.toCharArray()) {
@@ -76,5 +77,20 @@ public class RobotController {
             }
         }
         return -1;
+    }
+
+    private String validateInput(Grid grid, Robot robot) {
+        if (grid.getMaxX() > MAX_COORDINATE_SIZE || grid.getMaxY() > MAX_COORDINATE_SIZE || grid.getMaxX() < 0 || grid.getMaxY() < 0) {
+            return "Grid has an invalid size - max coordinate size: " + MAX_COORDINATE_SIZE + " min coordinate size : 0. Entered X coordinate size: " + grid.getMaxX() + " Entered Y coordinate size: " + grid.getMaxY();
+        }
+
+        if (robot.getxCoord() > MAX_COORDINATE_SIZE || robot.getxCoord() < 0 || robot.getyCoord() > MAX_COORDINATE_SIZE || robot.getyCoord() < 0) {
+            return "Robot is in an invalid coordinate - robot X coord: " + robot.getyCoord() + " Robot Y coord: " + robot.getyCoord();
+        }
+
+        if (robot.getxCoord() > grid.getMaxX() || robot.getyCoord() > grid.getMaxY()) {
+            return "Robot initial coordinate is over the maximum size of the grid";
+        }
+        return null;
     }
 }
